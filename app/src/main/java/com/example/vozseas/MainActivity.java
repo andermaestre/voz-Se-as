@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -32,7 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(requestCode){
             case 10:
                 if(resultCode == RESULT_OK && data!=null){
-                    data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    txtTraduccion.setText(result.get(0));
                 }
 
 
